@@ -8,8 +8,9 @@ public class kävely : MonoBehaviour
     private float nopeus = 3f;
     private bool ilmassa = false;
     private float voima = 400f;
-    private int pisteet = 0;
-    [SerializeField] private TextMeshProUGUI teksti;
+    public int pisteet = 0;
+    public static int loppuPisteet;
+    [SerializeField] public TextMeshProUGUI teksti;
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +59,7 @@ public class kävely : MonoBehaviour
         if (a.gameObject.name.Equals("lintu_0 (1)"))
         {
             // Load a scene named "YourSceneName" when colliding with "lintu_0 (1)"
+            loppuPisteet = pisteet;
             SceneManager.LoadScene("kuolemaScene");
         }
         else if(a.gameObject.name.Equals("kolikkoja_0(Clone)"))

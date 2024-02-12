@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "2D-peli.sln"
+    "dotnet.defaultSolution": "Peli2D.sln"
 }
