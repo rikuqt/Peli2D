@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-using UnityEngine;
 using TMPro;
 
 public class loppuTulos : MonoBehaviour
@@ -12,6 +10,6 @@ public class loppuTulos : MonoBehaviour
     void Start()
     {
         // Lopputuloksen näyttäminen
-        scoreText.text = "Loppu pisteet: " + kävely.loppuPisteet.ToString();
+        scoreText.text = "Keräsit " + kävely.loppuPisteet.ToString() + " pistettä, mutta kuolit.";
     }
 }

@@ -11,6 +11,11 @@ public class kävely : MonoBehaviour
     public int pisteet = 0;
     public static int loppuPisteet;
     [SerializeField] public TextMeshProUGUI teksti;
+    MusiikkiManager audioManager;
+
+    private void Awake(){
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<MusiikkiManager>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -66,10 +71,11 @@ public class kävely : MonoBehaviour
         {
             GameObject kolikko = GameObject.Find("kolikkoja_0(Clone)");
             Destroy(kolikko);
+            this.ilmassa = false;
             pisteet++;
             Debug.Log("Pisteet: " + pisteet);
             teksti.text="Pisteet: "+pisteet;
-            this.ilmassa = false;
+            audioManager.PlaySFX(audioManager.kolikko);
             if (pisteet == 2){
                 Debug.Log("jeejee");
                 SceneManager.LoadScene("voittoScene");
