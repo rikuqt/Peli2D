@@ -1478,8 +1478,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 1003809376}
   SFXSource: {fileID: 233782583}
-  background: {fileID: 0}
-  kolikko: {fileID: 0}
+  background: {fileID: 8300000, guid: 2c3682ed21496344ba5ca5d3ade5465b, type: 3}
+  kolikko: {fileID: 8300000, guid: dad785b64a9091d42b098689198f46cb, type: 3}
 --- !u!4 &1555589246
 Transform:
   m_ObjectHideFlags: 0

@@ -63,7 +63,7 @@ public class kävely : MonoBehaviour
         Debug.Log(a.gameObject.name);
         if (a.gameObject.name.Equals("lintu_0 (1)"))
         {
-            // Load a scene named "YourSceneName" when colliding with "lintu_0 (1)"
+            // Scenen Loadaus kun collide
             loppuPisteet = pisteet;
             SceneManager.LoadScene("kuolemaScene");
         }
@@ -75,7 +75,10 @@ public class kävely : MonoBehaviour
             pisteet++;
             Debug.Log("Pisteet: " + pisteet);
             teksti.text="Pisteet: "+pisteet;
+        
+        if (a.gameObject.name.Equals("kolikkoja_0(Clone)")){
             audioManager.PlaySFX(audioManager.kolikko);
+        }
             if (pisteet == 2){
                 Debug.Log("jeejee");
                 SceneManager.LoadScene("voittoScene");
