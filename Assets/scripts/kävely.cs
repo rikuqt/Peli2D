@@ -25,36 +25,27 @@ public class kävely : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D) && (this.suunta != 1))
+        if (Input.GetKeyDown(KeyCode.D) && (this.suunta!=1))
         {
-            GetComponent<Transform>().Rotate(0f, 180f, 0f);
-            suunta = 1;
+            this.GetComponent<Transform>().Rotate(0f,180f,0f);
+            this.suunta=1;
         }
-
-        if (Input.GetKeyDown(KeyCode.A) && (this.suunta != 2))
+        if (Input.GetKeyDown(KeyCode.A) && (this.suunta!=2))
         {
-            GetComponent<Transform>().Rotate(0f, 180f, 0f);
-            suunta = 2;
+            this.GetComponent<Transform>().Rotate(0f,180f,0f);
+            this.suunta=2;
         }
-
-        GetComponent<Transform>().Translate(this.nopeus * Time.deltaTime, 0f, 0f);
-        if (this.GetComponent<Transform>().position.x > 11f) 
-        {
-            this.transform.Rotate(0f,180f,0f);
-            this.suunta = 2;
-        }
-        if (this.GetComponent<Transform>().position.x < -11f)
-        {
-            this.transform.Rotate(0f,180f,0f);
-            this.suunta = 1;
-        }
-
         if (Input.GetKeyDown(KeyCode.Space) && (!this.ilmassa))
         {
-            GetComponent<Rigidbody2D>().AddForce(Vector2.up * this.voima);
+            this.GetComponent<Rigidbody2D>().AddForce(Vector2.up*this.voima);
         }
+        
+        this.GetComponent<Transform>().Translate(
+            this.nopeus*Time.deltaTime,
+            0f,
+            0f);
     }
 
     void OnCollisionEnter2D(Collision2D a)
@@ -79,8 +70,9 @@ public class kävely : MonoBehaviour
         if (a.gameObject.name.Equals("kolikkoja_0(Clone)")){
             audioManager.PlaySFX(audioManager.kolikko);
         }
-            if (pisteet == 2){
-                Debug.Log("jeejee");
+            // Voitto sceneen siirtyminen x kerätyn jälkeen
+            if (pisteet == 5){
+                Debug.Log("voitto");
                 SceneManager.LoadScene("voittoScene");
             }
         }
