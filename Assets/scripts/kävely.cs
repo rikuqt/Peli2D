@@ -46,12 +46,23 @@ public class kävely : MonoBehaviour
             this.nopeus*Time.deltaTime,
             0f,
             0f);
+
+            if (GetComponent<Transform>().position.x>9f){
+                transform.Rotate(0f,180f,0f);
+                this.suunta=2;
+            }
+
+            if (GetComponent<Transform>().position.x<-9f){
+                transform.Rotate(0f,180f,0f);
+                this.suunta=1;
+            }
     }
 
     void OnCollisionEnter2D(Collision2D a)
     {
         this.ilmassa = false;
-        Debug.Log(a.gameObject.name);
+        Debug.Log("ilmassaFalse");
+        // Debug.Log(a.gameObject.name);
         if (a.gameObject.name.Equals("lintu_0 (1)"))
         {
             // Scenen Loadaus kun collide
@@ -62,7 +73,6 @@ public class kävely : MonoBehaviour
         {
             GameObject kolikko = GameObject.Find("kolikkoja_0(Clone)");
             Destroy(kolikko);
-            this.ilmassa = false;
             pisteet++;
             Debug.Log("Pisteet: " + pisteet);
             teksti.text="Pisteet: "+pisteet;
@@ -81,5 +91,6 @@ public class kävely : MonoBehaviour
     void OnCollisionExit2D(Collision2D a)
     {
         this.ilmassa = true;
+        Debug.Log("ilmassaTrue");
     }
 }
